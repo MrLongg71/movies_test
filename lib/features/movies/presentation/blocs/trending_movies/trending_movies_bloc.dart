@@ -31,7 +31,7 @@ class TrendingMoviesBloc extends Bloc<TrendingMoviesEvent, TrendingMoviesState> 
       final List<MoviesEntity>? items = await getTrendingMoviesUseCase?.call(
         Params(
           10,
-          state.items.length,
+          1,
         ),
       );
 

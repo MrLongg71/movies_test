@@ -2,7 +2,7 @@ import '../../models/movies_model.dart';
 
 abstract class MoviesRemoteDataSource {
   Future<List<MoviesModel>> getTrendingMovies({
-    int page = 0,
+    int page = 1,
     int limit = 20,
   });
 

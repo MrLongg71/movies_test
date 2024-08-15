@@ -12,13 +12,13 @@ class MoviesRepositoryImpl extends MoviesRepository {
 
   @override
   Future<List<MoviesEntity>> getTrendingMovies({
-    int page = 0,
+    int page = 1,
     int limit = 10,
   }) {
     //handle caching data here.
     return moviesRemoteDataSource.getTrendingMovies(
-      page: 0,
-      limit: 10,
+      page: page,
+      limit: limit,
     );
   }
 

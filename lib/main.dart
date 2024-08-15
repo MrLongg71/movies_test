@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/injector/injection_container.dart';
-import 'feature/movies/presentation/pages/trending_movies_page.dart';
+import 'features/movies/presentation/pages/trending_movies_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

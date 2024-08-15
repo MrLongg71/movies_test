@@ -11,26 +11,25 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import '../../feature/movies/data/datasources/remote/movies_remote_data_source.dart'
-    as _i770;
-import '../../feature/movies/data/datasources/remote/movies_remote_data_source_impl.dart'
-    as _i179;
-import '../../feature/movies/data/repositories/movies_repository_impl.dart'
-    as _i573;
-import '../../feature/movies/domain/repositories/movies_repository.dart'
-    as _i247;
-import '../../feature/movies/domain/usecases/get_movies_detail_usecase.dart'
-    as _i532;
-import '../../feature/movies/domain/usecases/get_trending_movies_usecase.dart'
-    as _i32;
-import '../../feature/movies/domain/usecases/search_movies_usecase.dart'
-    as _i469;
-import '../../feature/movies/presentation/blocs/movies_detail/movies_detail_bloc.dart'
-    as _i715;
-import '../../feature/movies/presentation/blocs/trending_movies/trending_movies_bloc.dart'
-    as _i178;
+import '../../features/movies/data/datasources/remote/movies_remote_data_source.dart'
+    as _i448;
+import '../../features/movies/data/datasources/remote/movies_remote_data_source_impl.dart'
+    as _i587;
+import '../../features/movies/data/repositories/movies_repository_impl.dart'
+    as _i985;
+import '../../features/movies/domain/repositories/movies_repository.dart'
+    as _i435;
+import '../../features/movies/domain/usecases/get_movies_detail_usecase.dart'
+    as _i452;
+import '../../features/movies/domain/usecases/get_trending_movies_usecase.dart'
+    as _i391;
+import '../../features/movies/domain/usecases/search_movies_usecase.dart'
+    as _i794;
+import '../../features/movies/presentation/blocs/movies_detail/movies_detail_bloc.dart'
+    as _i545;
+import '../../features/movies/presentation/blocs/trending_movies/trending_movies_bloc.dart'
+    as _i394;
 import '../network/client.dart' as _i99;
-import '../network/network_info.dart' as _i932;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i174.GetIt $initGetIt(
@@ -43,21 +42,21 @@ _i174.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.factory<_i99.AppClient>(() => _i99.AppClient());
-  gh.singleton<_i932.NetworkInfoImpl>(() => _i932.NetworkInfoImpl());
-  gh.factory<_i469.SearchMoviesUseCase>(() => _i469.SearchMoviesUseCase(
-      moviesRepository: gh<_i247.MoviesRepository>()));
-  gh.factory<_i532.GetMoviesDetailUseCase>(() => _i532.GetMoviesDetailUseCase(
-      moviesRepository: gh<_i247.MoviesRepository>()));
-  gh.factory<_i770.MoviesRemoteDataSource>(
-      () => _i179.MoviesRemoteDataSourceImpl(appClient: gh<_i99.AppClient>()));
-  gh.factory<_i715.MoviesDetailBloc>(() => _i715.MoviesDetailBloc(
-      getMoviesDetailUseCase: gh<_i532.GetMoviesDetailUseCase>()));
-  gh.factory<_i178.TrendingMoviesBloc>(() => _i178.TrendingMoviesBloc(
-      getTrendingMoviesUseCase: gh<_i32.GetTrendingMoviesUseCase>()));
-  gh.factory<_i247.MoviesRepository>(() => _i573.MoviesRepositoryImpl(
-      moviesRemoteDataSource: gh<_i770.MoviesRemoteDataSource>()));
-  gh.factory<_i32.GetTrendingMoviesUseCase>(() => _i32.GetTrendingMoviesUseCase(
-      productRepository: gh<_i247.MoviesRepository>()));
+  gh.singleton<_i99.AppClient>(() => _i99.AppClient());
+  gh.factory<_i545.MoviesDetailBloc>(() => _i545.MoviesDetailBloc(
+      getMoviesDetailUseCase: gh<_i452.GetMoviesDetailUseCase>()));
+  gh.factory<_i394.TrendingMoviesBloc>(() => _i394.TrendingMoviesBloc(
+      getTrendingMoviesUseCase: gh<_i391.GetTrendingMoviesUseCase>()));
+  gh.factory<_i794.SearchMoviesUseCase>(() => _i794.SearchMoviesUseCase(
+      moviesRepository: gh<_i435.MoviesRepository>()));
+  gh.factory<_i452.GetMoviesDetailUseCase>(() => _i452.GetMoviesDetailUseCase(
+      moviesRepository: gh<_i435.MoviesRepository>()));
+  gh.factory<_i448.MoviesRemoteDataSource>(
+      () => _i587.MoviesRemoteDataSourceImpl(appClient: gh<_i99.AppClient>()));
+  gh.factory<_i435.MoviesRepository>(() => _i985.MoviesRepositoryImpl(
+      moviesRemoteDataSource: gh<_i448.MoviesRemoteDataSource>()));
+  gh.factory<_i391.GetTrendingMoviesUseCase>(() =>
+      _i391.GetTrendingMoviesUseCase(
+          productRepository: gh<_i435.MoviesRepository>()));
   return getIt;
 }

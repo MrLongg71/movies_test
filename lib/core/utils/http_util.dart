@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:movies_test/core/models/base_error_res_model.dart';
+import 'package:movies_test/core/utils/logger_util.dart';
 
 import '../exceptions/server_exception.dart';
 
@@ -13,7 +14,8 @@ class HttpUtil {
       // case 302:
       //   return response;
       default:
-        BaseErrorResModel errorResModel = BaseErrorResModel.fromJson(
+        LOG.e('\n ERROR: ${response.data}');
+        BaseErrorResModel? errorResModel = BaseErrorResModel.fromJson(
           response.data,
         );
         throw ServerException(

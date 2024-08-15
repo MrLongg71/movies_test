@@ -13,7 +13,7 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
 
   @override
   Future<List<MoviesModel>> getTrendingMovies({
-    int page = 0,
+    int page = 1,
     int limit = 10,
   }) async {
     final res = await appClient?.get(

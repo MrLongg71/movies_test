@@ -8,7 +8,6 @@ abstract class NetworkInfo {
   Future<bool> get isConnected;
 }
 
-@singleton
 class NetworkInfoImpl extends NetworkInfo {
   final ValueNotifier<bool> notifier = ValueNotifier<bool>(false);
 
