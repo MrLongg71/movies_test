@@ -30,6 +30,8 @@ import '../../features/movies/presentation/blocs/movies_detail/movies_detail_blo
 import '../../features/movies/presentation/blocs/trending_movies/trending_movies_bloc.dart'
     as _i394;
 import '../network/client.dart' as _i99;
+import '../utils/secure_storage_util.dart' as _i8;
+import '../utils/spref_util.dart' as _i316;
 
 // initializes the registration of main-scope dependencies inside of GetIt
 _i174.GetIt $initGetIt(
@@ -43,6 +45,8 @@ _i174.GetIt $initGetIt(
     environmentFilter,
   );
   gh.singleton<_i99.AppClient>(() => _i99.AppClient());
+  gh.singleton<_i8.SecureStorageUtil>(() => _i8.SecureStorageUtil());
+  gh.singleton<_i316.SPrefUtil>(() => _i316.SPrefUtil());
   gh.factory<_i545.MoviesDetailBloc>(() => _i545.MoviesDetailBloc(
       getMoviesDetailUseCase: gh<_i452.GetMoviesDetailUseCase>()));
   gh.factory<_i394.TrendingMoviesBloc>(() => _i394.TrendingMoviesBloc(

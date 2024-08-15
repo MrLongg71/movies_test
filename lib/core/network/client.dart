@@ -5,7 +5,6 @@ import 'package:injectable/injectable.dart';
 import 'package:movies_test/core/network/config_network.dart';
 
 import '../exceptions/server_exception.dart';
-import '../utils/logger_util.dart';
 import '../utils/utils.dart';
 import 'app_header.dart';
 import 'http.dart';
@@ -25,6 +24,9 @@ class AppClient {
     String log =
         "[GET]\n url: ${ConfigNetwork.apiUrl}$url \n queryParams: $queryParams\n headers: ${header.toJson()}";
     try {
+      queryParams?.addAll({
+        'api_key': '47aa75b56464da7a186b813a50035cd4',
+      });
       LOG.i(log);
       final response = await dio.get(
         url,

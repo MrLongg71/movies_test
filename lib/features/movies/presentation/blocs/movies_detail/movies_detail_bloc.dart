@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/entities/movies_entity.dart';
+import '../../../domain/entities/movie_detail_entity.dart';
 import '../../../domain/usecases/get_movies_detail_usecase.dart';
 import 'movies_detail_event.dart';
 import 'movies_detail_state.dart';
@@ -26,7 +26,7 @@ class MoviesDetailBloc extends Bloc<MoviesDetailEvent, MoviesDetailState> {
     );
 
     try {
-      final MoviesEntity? item = await getMoviesDetailUseCase?.call(
+      final MovieDetailEntity? item = await getMoviesDetailUseCase?.call(
         Params(id: event.id),
       );
 

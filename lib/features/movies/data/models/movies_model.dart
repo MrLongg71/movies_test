@@ -4,7 +4,7 @@ import '../../domain/entities/movies_entity.dart';
 
 part 'movies_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class MoviesModel extends MoviesEntity {
   MoviesModel({
     super.backdropPath,

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+
 import 'config_network.dart';
 
 Dio dio = Dio(
@@ -10,7 +11,6 @@ Dio dio = Dio(
     baseUrl: ConfigNetwork.apiUrl,
   ),
 );
-
 
 LogInterceptor logInterceptor = LogInterceptor(
   requestHeader: kDebugMode,

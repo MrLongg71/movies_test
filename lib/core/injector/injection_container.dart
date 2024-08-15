@@ -11,4 +11,5 @@ final getIt = GetIt.instance;
   asExtension: false, // default
 )
 @InjectableInit()
-Future<void> configureDependencies() async => $initGetIt(getIt, environment: 'dev');
+Future<void> configureDependencies() async =>
+    $initGetIt(getIt, environment: 'dev');

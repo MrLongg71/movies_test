@@ -1,3 +1,5 @@
+import 'package:movies_test/features/movies/data/models/movie_detail_model.dart';
+
 import '../../models/movies_model.dart';
 
 abstract class MoviesRemoteDataSource {
@@ -6,7 +8,7 @@ abstract class MoviesRemoteDataSource {
     int limit = 20,
   });
 
-  Future<MoviesModel> getMovies({required int id});
+  Future<MovieDetailModel> getMovie({required int id});
+
   Future<List<MoviesModel>> search({String? query});
 }
-

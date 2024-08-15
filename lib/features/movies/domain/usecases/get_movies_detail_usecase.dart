@@ -1,19 +1,19 @@
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
-import '../../../movies/domain/entities/movies_entity.dart';
 
 import '../../../../core/usecases/usecase.dart';
+import '../entities/movie_detail_entity.dart';
 import '../repositories/movies_repository.dart';
 
 @Injectable()
-class GetMoviesDetailUseCase implements UseCase<MoviesEntity, Params> {
+class GetMoviesDetailUseCase implements UseCase<MovieDetailEntity, Params> {
   final MoviesRepository? moviesRepository;
 
   GetMoviesDetailUseCase({required this.moviesRepository});
 
   @override
-  Future<MoviesEntity> call(Params params) {
-    return moviesRepository!.getMovies(id: params.id!);
+  Future<MovieDetailEntity> call(Params params) {
+    return moviesRepository!.getMovie(id: params.id!);
   }
 }
 

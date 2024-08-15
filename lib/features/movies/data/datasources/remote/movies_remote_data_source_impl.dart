@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../../core/constants/api_constants.dart';
 import '../../../../../core/network/client.dart';
+import '../../models/movie_detail_model.dart';
 import '../../models/movies_model.dart';
 import 'movies_remote_data_source.dart';
 
@@ -29,9 +30,14 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
   }
 
   @override
-  Future<MoviesModel> getMovies({required int id}) async {
-    final res = await appClient?.get('${ApiConstants.getMovies}/$id');
-    return MoviesModel.fromJson(res?.data);
+  Future<MovieDetailModel> getMovie({required int id}) async {
+    final res = await appClient?.get(
+      '${ApiConstants.getMovies}/$id',
+      queryParams: {
+        'append_to_response': 'videos,credits,reviews,similar',
+      },
+    );
+    return MovieDetailModel.fromJson(res?.data);
   }
 
   //load more

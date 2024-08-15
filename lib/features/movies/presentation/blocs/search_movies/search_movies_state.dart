@@ -1,4 +1,5 @@
 part of 'search_movies_bloc.dart';
+
 enum SearchMoviesStatus {
   loading,
   success,

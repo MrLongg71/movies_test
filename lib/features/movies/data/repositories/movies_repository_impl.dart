@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:movies_test/features/movies/domain/entities/movie_detail_entity.dart';
 
 import '../../domain/entities/movies_entity.dart';
 import '../../domain/repositories/movies_repository.dart';
@@ -23,8 +24,8 @@ class MoviesRepositoryImpl extends MoviesRepository {
   }
 
   @override
-  Future<MoviesEntity> getMovies({required int id}) {
-    return moviesRemoteDataSource.getMovies(id: id);
+  Future<MovieDetailEntity> getMovie({required int id}) {
+    return moviesRemoteDataSource.getMovie(id: id);
   }
 
   @override

@@ -11,6 +11,7 @@ class MoviesDetailPage extends StatefulWidget {
     super.key,
     required this.id,
   });
+
   final int id;
 
   @override
@@ -54,15 +55,15 @@ class _MoviesDetailPageState extends State<MoviesDetailPage> {
                 ),
                 child: Column(
                   children: [
-                  //   Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child: Image.network(
-                  //       state.item?.thumbnail ?? '',
-                  //     ),
-                  //   ),
-                  //   Text(state.item?.title ?? ''),
-                  //   Text(state.item?.description ?? ''),
-                  //   Text(state.item?.category ?? ''),
+                    //   Padding(
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: Image.network(
+                    //       state.item?.thumbnail ?? '',
+                    //     ),
+                    //   ),
+                    //   Text(state.item?.title ?? ''),
+                    //   Text(state.item?.description ?? ''),
+                    //   Text(state.item?.category ?? ''),
                   ],
                 ),
               );
