@@ -1,0 +1,19 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../domain/entities/movies_entity.dart';
+
+part 'movies_detail_state.freezed.dart';
+
+enum MoviesDetailStatus {
+  loading,
+  success,
+  failure,
+}
+
+@freezed
+class MoviesDetailState with _$MoviesDetailState {
+  const factory MoviesDetailState({
+    @Default(MoviesDetailStatus.loading) MoviesDetailStatus status,
+    MoviesEntity? item,
+  }) = _MoviesDetailState;
+}
