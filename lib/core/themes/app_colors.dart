@@ -53,25 +53,3 @@ class AppColors {
     end: Alignment.bottomCenter,
   );
 }
-
-class HexColor extends Color {
-  static int _getColorFromHex(String hexColor) {
-    hexColor = hexColor.toUpperCase().replaceAll("#", "");
-    if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
-    }
-    return int.parse(hexColor, radix: 16);
-  }
-
-  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
-}
-
-final listColorShirt = <Color>[
-  HexColor('FFFFFF'),
-  HexColor('000000'),
-  HexColor('E76363'),
-  HexColor('51C0FF'),
-  HexColor('7451FF'),
-  HexColor('DC51FF'),
-  HexColor('FFA451'),
-];

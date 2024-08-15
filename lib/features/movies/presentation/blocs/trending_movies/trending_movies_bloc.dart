@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movies_test/core/utils/logger_util.dart';
 
 import '../../../domain/entities/movies_entity.dart';
 import '../../../domain/usecases/get_trending_movies_usecase.dart';
@@ -36,11 +37,15 @@ class TrendingMoviesBloc
         ),
       );
 
+      LOG.i('OnGetTrendingMoviesEvent Success: ${items?.length}');
+
       emit(state.copyWith(
         status: TrendingMoviesStatus.success,
         items: items ?? [],
       ));
     } catch (e) {
+      LOG.i('OnGetTrendingMoviesEvent Error: $e');
+
       emit(
         state.copyWith(
           status: TrendingMoviesStatus.failure,
