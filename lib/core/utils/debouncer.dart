@@ -7,7 +7,7 @@ class Debouncer {
   VoidCallback? action;
   Timer? _timer;
 
-  Debouncer({required this.milliseconds});
+  Debouncer({this.milliseconds = 300});
 
   run(VoidCallback action) {
     if (_timer != null) {
@@ -15,5 +15,11 @@ class Debouncer {
     }
 
     _timer = Timer(Duration(milliseconds: milliseconds), action);
+  }
+
+  void cancel() {
+    if (_timer != null) {
+      _timer!.cancel();
+    }
   }
 }

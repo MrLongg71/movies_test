@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:movies_test/core/constants/error_constants.dart';
 import 'package:movies_test/core/exceptions/app_exception.dart';
 import 'package:movies_test/core/models/base_error_res_model.dart';
 import 'package:movies_test/core/network/network_info.dart';
@@ -52,7 +53,7 @@ class MoviesRepositoryImpl extends MoviesRepository {
     if (cachedMovies.isEmpty) {
       throw AppException(
         err: BaseErrorResModel(
-          statusCode: -1,
+          statusCode: ErrorConstants.networkErrorCode,
           statusMessage: 'No cached data found and no network connection.',
         ),
       );
@@ -81,7 +82,7 @@ class MoviesRepositoryImpl extends MoviesRepository {
     if (cachedMovieDetail == null) {
       throw AppException(
         err: BaseErrorResModel(
-          statusCode: -1,
+          statusCode: ErrorConstants.networkErrorCode,
           statusMessage: 'No cached movie found for id: $id.',
         ),
       );

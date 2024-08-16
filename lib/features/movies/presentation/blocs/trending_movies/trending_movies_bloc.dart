@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:movies_test/core/constants/api_constants.dart';
 import 'package:movies_test/core/utils/logger_util.dart';
 
+import '../../../../../core/exceptions/app_exception.dart';
 import '../../../domain/entities/movie_entity.dart';
 import '../../../domain/usecases/get_trending_movies_usecase.dart';
 import 'trending_movies_event.dart';
@@ -43,13 +44,14 @@ class TrendingMoviesBloc
       emit(state.copyWith(
         status: TrendingMoviesStatus.success,
         items: event.page == 1 ? items : [...state.items, ...items],
+        hasReachedMax: items.length < ApiConstants.limitRequest,
       ));
-    } catch (e) {
+    } on AppException catch (e) {
       LOG.i('OnGetTrendingMoviesEvent Error: $e');
-
       emit(
         state.copyWith(
           status: TrendingMoviesStatus.failure,
+          appException: e,
         ),
       );
     }

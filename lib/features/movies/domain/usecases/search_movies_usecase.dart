@@ -7,13 +7,13 @@ import '../repositories/movies_repository.dart';
 
 @Injectable()
 class SearchMoviesUseCase implements UseCase<List<MovieEntity>, SearchParams> {
-  final MoviesRepository? moviesRepository;
+  final MoviesRepository moviesRepository;
 
   SearchMoviesUseCase({required this.moviesRepository});
 
   @override
   Future<List<MovieEntity>> call(SearchParams params) {
-    return moviesRepository!.search(query: params.query);
+    return moviesRepository.search(query: params.query);
   }
 }
 

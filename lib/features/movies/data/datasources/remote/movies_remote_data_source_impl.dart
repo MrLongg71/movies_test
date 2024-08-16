@@ -34,7 +34,7 @@ class MoviesRemoteDataSourceImpl extends MoviesRemoteDataSource {
     final res = await appClient?.get(
       '${ApiConstants.getMovies}/$id',
       queryParams: {
-        'append_to_response': 'videos,credits,reviews,similar',
+        'append_to_response': 'similar',
       },
     );
     return MovieDetailModel.fromJson(res?.data);

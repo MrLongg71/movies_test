@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movies_test/core/exceptions/app_exception.dart';
 import 'package:movies_test/core/utils/logger_util.dart';
 
 import '../../../domain/entities/movie_detail_entity.dart';
@@ -35,11 +36,12 @@ class MoviesDetailBloc extends Bloc<MoviesDetailEvent, MoviesDetailState> {
         status: MoviesDetailStatus.success,
         item: item,
       ));
-    } catch (e) {
+    } on AppException catch (e) {
       LOG.e('OnGetMoviesDetailEvent ${e.toString()}');
       emit(
         state.copyWith(
           status: MoviesDetailStatus.failure,
+          appException: e,
         ),
       );
     }

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_test/core/constants/error_constants.dart';
 import 'package:movies_test/features/movies/presentation/widgets/movie_detail_widget.dart';
 
+import '../../../../core/exceptions/app_exception.dart';
 import '../../../../core/injector/injection_container.dart';
+import '../../../../core/widgets/custom_error_widget.dart';
+import '../../domain/entities/movie_detail_entity.dart';
 import '../blocs/movies_detail/movies_detail_bloc.dart';
 import '../blocs/movies_detail/movies_detail_event.dart';
 import '../blocs/movies_detail/movies_detail_state.dart';
@@ -41,26 +45,47 @@ class _MoviesDetailPageState extends State<MoviesDetailPage> {
       value: _bloc,
       child: BlocBuilder<MoviesDetailBloc, MoviesDetailState>(
         builder: (context, state) {
-          return BlocBuilder<MoviesDetailBloc, MoviesDetailState>(
-            builder: (context, state) {
-              if (state.status == MoviesDetailStatus.loading) {
-                return const Center(child: CircularProgressIndicator());
-              }
+          switch (state.status) {
+            case MoviesDetailStatus.loading:
+              return const Center(child: CircularProgressIndicator());
+
+            case MoviesDetailStatus.success:
               if (state.item != null) {
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      MovieDetailWidget(movieDetailEntity: state.item!),
-                      MovieDescriptionWidget(desc: state.item?.overview),
-                    ],
-                  ),
-                );
+                return _buildSuccessContent(state.item!);
               }
-              return SizedBox();
-            },
-          );
+              return const SizedBox();
+
+            case MoviesDetailStatus.failure:
+              return _buildFailureContent(state.appException);
+
+            default:
+              return const SizedBox();
+          }
         },
       ),
+    );
+  }
+
+  Widget _buildSuccessContent(MovieDetailEntity item) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          MovieDetailWidget(movieDetailEntity: item),
+          MovieDescriptionWidget(desc: item.overview),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFailureContent(AppException? appException) {
+    if (appException?.err.statusCode == ErrorConstants.networkErrorCode) {
+      return CustomErrorWidget.network(
+        onRetry: () => _bloc.add(OnGetMoviesDetailEvent(id: widget.id)),
+      );
+    }
+    return CustomErrorWidget(
+      errMsg: appException?.err.statusMessage,
+      onRetry: () => _bloc.add(OnGetMoviesDetailEvent(id: widget.id)),
     );
   }
 }

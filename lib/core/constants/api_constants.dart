@@ -1,5 +1,4 @@
 class ApiConstants {
-
   static const int limitRequest = 20;
   static const String version = '3';
   static const String getTrendingMoviesOfDay = '$version/trending/movie/day';

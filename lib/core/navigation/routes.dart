@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movies_test/features/movies/presentation/pages/movies_detail_page.dart';
-import 'package:movies_test/features/movies/presentation/pages/trending_movies_page.dart';
 
+import '../../features/movies/presentation/pages/movies_detail_page.dart';
+import '../../features/movies/presentation/pages/search_movies_page.dart';
+import '../../features/movies/presentation/pages/trending_movies_page.dart';
 import '../../features/splash/presentation/pages/splash_page.dart';
 import '../utils/logger_util.dart';
 import 'route_names.dart';
@@ -62,6 +63,11 @@ class Routes {
           page: MoviesDetailPage(
             id: params['id'],
           ),
+          setting: settings,
+        );
+      case RouteName.searchMovies:
+        return _pageRoute(
+          page: const SearchMoviesPage(),
           setting: settings,
         );
       default:
