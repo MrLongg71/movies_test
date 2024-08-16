@@ -1,11 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../domain/entities/movies_entity.dart';
+import '../../domain/entities/movie_entity.dart';
 
 part 'movies_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class MoviesModel extends MoviesEntity {
+class MoviesModel extends MovieEntity {
   MoviesModel({
     super.backdropPath,
     super.id,

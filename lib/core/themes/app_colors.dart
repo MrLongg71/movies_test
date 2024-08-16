@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color primaryColor = Color(0xff1D9BF0);
   static const Color secondaryColor = Color(0xffF0761D);
+  static const primaryBackground = Color(0xff1a1d1f);
+  static const secondaryBackground = Color(0xff272b30);
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color blackColor = Color(0xff000000);
+
   static const Color disableColor = Color(0xffABABAB);
   static const Color borderColor = Color(0xffDCE1E9);
   static const Color disableTextColor = Color(0xffCED0D1);
@@ -21,10 +24,18 @@ class AppColors {
   static const Color blueColor = Color(0xff0068E2);
   static const Color yellowColor = Color(0xffFFC700);
   static const Color yellowLightColor = Color(0xffFFEC89);
+  static const ratingIconColor = Color(0xffffbe21);
+
   static const Color greenColor = Color(0xff36C31F);
   static const Color blueLight = Color(0xffCAE2FF);
 
   static const Color facebookColor = Color(0xff1877F2);
+
+  static const Color transparent = Colors.transparent;
+
+  static const Color iconContainerColor = Color(0xB2272830);
+
+  static const Color circleDotColor = Color(0x33ffffff);
 
   static final LinearGradient premiumBackground = LinearGradient(
     colors: [
@@ -33,23 +44,5 @@ class AppColors {
     ],
     begin: Alignment.bottomLeft,
     end: Alignment.topRight,
-  );
-
-  static const LinearGradient countingBackground = LinearGradient(
-    colors: [
-      Color(0xffF83600),
-      Color(0xffFE8C00),
-    ],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-  );
-
-  static const LinearGradient countBackground = LinearGradient(
-    colors: [
-      Color(0xff0052D4),
-      Color(0xff5DBEFF),
-    ],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
   );
 }

@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:injectable/injectable.dart';
 import 'package:movies_test/core/constants/constants.dart';
+import 'package:movies_test/core/extensions/extensions.dart';
+import 'package:movies_test/core/utils/logger_util.dart';
 import 'package:movies_test/features/movies/data/models/movie_detail_model.dart';
 import 'package:movies_test/features/movies/data/models/movies_model.dart';
 
@@ -21,6 +23,7 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
     _updateOrAddMovie(existingMovies, item);
 
     await _saveMovies(existingMovies.toSet().toList());
+    LOG.i('Cached movie id: ${item.id}');
   }
 
   @override
@@ -28,25 +31,25 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
     List<MoviesModel> existingMovies = await getTrendingMovies();
 
     List<MoviesModel> combinedMovies = List.from(existingMovies)..addAll(items);
-
+    List<MoviesModel> uniqueMovies = combinedMovies.toSet().toList();
     String combinedMoviesJson = jsonEncode(
-      combinedMovies
+      uniqueMovies
           .map(
             (e) => e.toJson(),
           )
-          .toSet()
           .toList(),
     );
     await sPrefUtil.setString(
       SPrefConstants.trendingMovies,
       combinedMoviesJson,
     );
+    LOG.i('Cached trending movies ${uniqueMovies.length}');
   }
 
   @override
   Future<MovieDetailModel?> getMovie({required int id}) async {
     String? existingMoviesJson = await sPrefUtil.getString(
-      SPrefConstants.trendingMovies,
+      SPrefConstants.movies,
     );
     List<MovieDetailModel> existingMovies = [];
 
@@ -58,7 +61,7 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
           )
           .toList();
     }
-    return existingMovies.firstWhere((e) => e.id == id);
+    return existingMovies.firstWhereOrNull((e) => e.id == id);
   }
 
   @override

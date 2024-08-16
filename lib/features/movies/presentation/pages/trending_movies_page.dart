@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_test/core/extensions/string_extensions.dart';
+import 'package:movies_test/core/navigation/route_names.dart';
+import 'package:movies_test/core/navigation/routes.dart';
+import 'package:movies_test/core/themes/app_colors.dart';
+import 'package:movies_test/core/themes/typography.dart';
+import 'package:movies_test/core/widgets/custom_list.dart';
+import 'package:movies_test/features/movies/presentation/widgets/movie_card.dart';
 
+import '../../../../core/constants/api_constants.dart';
 import '../../../../core/injector/injection_container.dart';
 import '../blocs/trending_movies/trending_movies_bloc.dart';
 import '../blocs/trending_movies/trending_movies_event.dart';
@@ -26,65 +34,50 @@ class _TrendingMoviesPageState extends State<TrendingMoviesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter TDD Clean Architecture'),
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'Movies app demo',
+          style: Header3(
+            color: AppColors.whiteColor,
+          ),
+        ),
       ),
       body: BlocProvider.value(
         value: _bloc,
         child: BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
           bloc: _bloc,
           builder: (context, state) {
-            if (state.status == TrendingMoviesStatus.loading) {
+            if (state.status == TrendingMoviesStatus.loading &&
+                state.items.isNullOrEmpty) {
               return const Center(child: CircularProgressIndicator());
             }
-            return ListView.builder(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 12,
-              ),
-              itemCount: state.items.length,
-              itemBuilder: (_, index) => InkWell(
-                // onTap: () => Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) => TrendingMoviesDetailPage(
-                //       id: state.items[index].id ?? -1,
-                //     ),
-                //   ),
-                // ),
-                child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey)),
-                  margin: const EdgeInsets.only(top: 12),
-                  // child: Row(
-                  //   mainAxisAlignment: MainAxisAlignment.start,
-                  //   children: [
-                  //     Expanded(
-                  //       flex: 2,
-                  //       child: Padding(
-                  //         padding: const EdgeInsets.all(8.0),
-                  //         child: Image.network(
-                  //           state.items[index].thumbnail ?? '',
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     const SizedBox(width: 6),
-                  //     Expanded(
-                  //       flex: 8,
-                  //       child: Column(
-                  //         crossAxisAlignment: CrossAxisAlignment.start,
-                  //         children: [
-                  //           Text(
-                  //             state.items[index].title ?? '',
-                  //           ),
-                  //           const SizedBox(height: 3),
-                  //           Text(
-                  //             '${state.items[index].price ?? ''}',
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
+            return CustomList(
+              isComplete: state.status != TrendingMoviesStatus.loading,
+              onRefresh: () => _bloc.add(const OnGetTrendingMoviesEvent()),
+              onLoadMore: () {
+                int nextPage =
+                    (state.items.length / ApiConstants.limitRequest).round() +
+                        1;
+                _bloc.add(OnGetTrendingMoviesEvent(page: nextPage));
+              },
+              child: ListView.separated(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
+                separatorBuilder: (_, idx) => const SizedBox(height: 12),
+                itemCount: state.items.length,
+                itemBuilder: (_, index) => MovieCard(
+                  onTap: (int? id) {
+                    assert(id != null);
+                    Routes.instance.navigateTo(
+                      RouteName.movieDetail,
+                      arguments: {
+                        'id': id,
+                      },
+                    );
+                  },
+                  movieEntity: state.items[index],
                 ),
               ),
             );

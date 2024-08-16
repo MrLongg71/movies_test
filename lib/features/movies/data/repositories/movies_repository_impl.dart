@@ -6,7 +6,7 @@ import 'package:movies_test/features/movies/data/models/movie_detail_model.dart'
 import 'package:movies_test/features/movies/data/models/movies_model.dart';
 import 'package:movies_test/features/movies/domain/entities/movie_detail_entity.dart';
 
-import '../../domain/entities/movies_entity.dart';
+import '../../domain/entities/movie_entity.dart';
 import '../../domain/repositories/movies_repository.dart';
 import '../datasources/local/movies_local_data_source.dart';
 import '../datasources/remote/movies_remote_data_source.dart';
@@ -24,9 +24,9 @@ class MoviesRepositoryImpl extends MoviesRepository {
   });
 
   @override
-  Future<List<MoviesEntity>> getTrendingMovies({
-    int page = 1,
-    int limit = 10,
+  Future<List<MovieEntity>> getTrendingMovies({
+    required int page,
+    required int limit,
   }) async {
     if (await networkInfo.isConnected) {
       return _fetchAndCacheTrendingMovies(page: page, limit: limit);
@@ -35,7 +35,7 @@ class MoviesRepositoryImpl extends MoviesRepository {
     }
   }
 
-  Future<List<MoviesEntity>> _fetchAndCacheTrendingMovies({
+  Future<List<MovieEntity>> _fetchAndCacheTrendingMovies({
     required int page,
     required int limit,
   }) async {
@@ -47,7 +47,7 @@ class MoviesRepositoryImpl extends MoviesRepository {
     return movies;
   }
 
-  Future<List<MoviesEntity>> _getCachedTrendingMovies() async {
+  Future<List<MovieEntity>> _getCachedTrendingMovies() async {
     List<MoviesModel> cachedMovies = await localDataSource.getTrendingMovies();
     if (cachedMovies.isEmpty) {
       throw AppException(
@@ -90,7 +90,7 @@ class MoviesRepositoryImpl extends MoviesRepository {
   }
 
   @override
-  Future<List<MoviesEntity>> search({String? query}) {
+  Future<List<MovieEntity>> search({String? query}) {
     return remoteDataSource.search(query: query);
   }
 }

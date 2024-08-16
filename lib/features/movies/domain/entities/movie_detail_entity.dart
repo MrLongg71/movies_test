@@ -1,31 +1,35 @@
+import 'package:equatable/equatable.dart';
+
+import '../../../../core/constants/constants.dart';
+import '../../../../core/utils/utils.dart';
 import 'genre_entity.dart';
 import 'production_company_entity.dart';
 
-class MovieDetailEntity {
-  bool? adult;
-  String? backdropPath;
-  int? budget;
-  List<GenreEntity>? genres;
-  String? homepage;
-  int? id;
-  String? imdbId;
-  String? originalLanguage;
-  String? originalTitle;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  List<ProductionCompanyEntity>? productionCompanies;
-  String? releaseDate;
-  int? revenue;
-  int? runtime;
-  String? status;
-  String? tagline;
-  String? title;
-  bool? video;
-  double? voteAverage;
-  int? voteCount;
+class MovieDetailEntity extends Equatable {
+  final bool? adult;
+  final String? backdropPath;
+  final int? budget;
+  final List<GenreEntity>? genres;
+  final String? homepage;
+  final int? id;
+  final String? imdbId;
+  final String? originalLanguage;
+  final String? originalTitle;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final List<ProductionCompanyEntity>? productionCompanies;
+  final String? releaseDate;
+  final int? revenue;
+  final int? runtime;
+  final String? status;
+  final String? tagline;
+  final String? title;
+  final bool? video;
+  final double? voteAverage;
+  final int? voteCount;
 
-  MovieDetailEntity({
+  const MovieDetailEntity({
     this.adult,
     this.backdropPath,
     this.budget,
@@ -49,4 +53,24 @@ class MovieDetailEntity {
     this.voteAverage,
     this.voteCount,
   });
+
+  String getBackdropUrl() => '${ApiConstants.baseBackdropUrl}$backdropPath';
+
+  String getVoteAverage() => NumberUtil.convertVote(voteAverage);
+
+  String getYearMovieReleaseDate() =>
+      DateUtil.getDate(releaseDate)?.year.toString() ?? '';
+
+  String? getRuntime() => DateUtil.formatTime(runtime);
+
+  String? getVotesCount() {
+    if (voteCount == null) return null;
+    if (voteCount! < 1000) {
+      return '($voteCount)';
+    }
+    return '(${voteCount! ~/ 1000}k)';
+  }
+
+  @override
+  List<Object?> get props => [id];
 }

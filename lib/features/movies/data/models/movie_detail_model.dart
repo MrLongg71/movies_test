@@ -38,8 +38,11 @@ class MovieDetailModel extends MovieDetailEntity {
     super.voteCount,
   }) : super(
           genres: genres?.map((e) => e.toEntity()).toList(),
-          productionCompanies:
-              productionCompanies?.map((e) => e.toEntity()).toList(),
+          productionCompanies: productionCompanies
+              ?.map(
+                (e) => e.toEntity(),
+              )
+              .toList(),
         );
 
   factory MovieDetailModel.fromJson(Map<String, dynamic> json) =>

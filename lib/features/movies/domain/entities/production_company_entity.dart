@@ -1,8 +1,8 @@
 class ProductionCompanyEntity {
-  int? id;
-  String? logoPath;
-  String? name;
-  String? originCountry;
+  final int? id;
+  final String? logoPath;
+  final  String? name;
+  final String? originCountry;
 
   ProductionCompanyEntity({
     this.id,

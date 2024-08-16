@@ -55,14 +55,12 @@ _i174.GetIt $initGetIt(
   gh.singleton<_i316.SPrefUtil>(() => _i316.SPrefUtil());
   gh.factory<_i545.MoviesDetailBloc>(() => _i545.MoviesDetailBloc(
       getMoviesDetailUseCase: gh<_i452.GetMoviesDetailUseCase>()));
-  gh.factory<_i394.TrendingMoviesBloc>(() => _i394.TrendingMoviesBloc(
-      getTrendingMoviesUseCase: gh<_i391.GetTrendingMoviesUseCase>()));
-  gh.factory<_i612.MoviesLocalDataSource>(
-      () => _i446.MoviesLocalDataSourceImpl(gh<_i316.SPrefUtil>()));
   gh.factory<_i794.SearchMoviesUseCase>(() => _i794.SearchMoviesUseCase(
       moviesRepository: gh<_i435.MoviesRepository>()));
   gh.factory<_i452.GetMoviesDetailUseCase>(() => _i452.GetMoviesDetailUseCase(
       moviesRepository: gh<_i435.MoviesRepository>()));
+  gh.factory<_i612.MoviesLocalDataSource>(
+      () => _i446.MoviesLocalDataSourceImpl(gh<_i316.SPrefUtil>()));
   gh.factory<_i448.MoviesRemoteDataSource>(
       () => _i587.MoviesRemoteDataSourceImpl(appClient: gh<_i99.AppClient>()));
   gh.factory<_i435.MoviesRepository>(() => _i985.MoviesRepositoryImpl(
@@ -73,5 +71,7 @@ _i174.GetIt $initGetIt(
   gh.factory<_i391.GetTrendingMoviesUseCase>(() =>
       _i391.GetTrendingMoviesUseCase(
           productRepository: gh<_i435.MoviesRepository>()));
+  gh.factory<_i394.TrendingMoviesBloc>(() => _i394.TrendingMoviesBloc(
+      getTrendingMoviesUseCase: gh<_i391.GetTrendingMoviesUseCase>()));
   return getIt;
 }

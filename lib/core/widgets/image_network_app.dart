@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:movies_test/core/constants/constants.dart';
 
-import '../constants/image_constants.dart';
 import '../themes/app_colors.dart';
 
 class ImageNetworkApp extends StatelessWidget {
@@ -40,27 +40,17 @@ class ImageNetworkApp extends StatelessWidget {
       return CachedNetworkImage(
         imageUrl: url ?? '',
         fit: fit,
-        placeholder: (context, url) => Container(
-          color: AppColors.whiteColor,
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Image.asset(
-              ImageConstants.logo,
-              fit: fit,
-            ),
-          ),
-        ),
-        errorWidget: (context, url, error) => Container(
-          color: AppColors.whiteColor,
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Image.asset(
-              ImageConstants.logo,
-              fit: fit,
-            ),
-          ),
-        ),
+        placeholder: (context, url) => _holderImageWidget(),
+        errorWidget: (context, url, error) => _holderImageWidget(),
       );
     }
   }
+
+  Widget _holderImageWidget() => Container(
+        color: AppColors.whiteColor,
+        child: Image.asset(
+          IconConstants.iconMovie,
+          fit: fit,
+        ),
+      );
 }

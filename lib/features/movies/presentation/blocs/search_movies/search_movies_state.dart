@@ -10,6 +10,6 @@ enum SearchMoviesStatus {
 class SearchMoviesState with _$SearchMoviesState {
   const factory SearchMoviesState({
     @Default(SearchMoviesStatus.loading) SearchMoviesStatus status,
-    @Default([]) List<MoviesEntity> items,
+    @Default([]) List<MovieEntity> items,
   }) = _SearchMoviesState;
 }

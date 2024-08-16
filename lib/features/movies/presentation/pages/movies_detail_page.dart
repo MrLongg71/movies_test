@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_test/features/movies/presentation/widgets/movie_detail_widget.dart';
 
 import '../../../../core/injector/injection_container.dart';
 import '../blocs/movies_detail/movies_detail_bloc.dart';
 import '../blocs/movies_detail/movies_detail_event.dart';
 import '../blocs/movies_detail/movies_detail_state.dart';
+import '../widgets/movie_description_widget.dart';
 
 class MoviesDetailPage extends StatefulWidget {
   const MoviesDetailPage({
@@ -30,9 +32,6 @@ class _MoviesDetailPageState extends State<MoviesDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Movies Detail'),
-      ),
       body: _buildBody(),
     );
   }
@@ -47,26 +46,17 @@ class _MoviesDetailPageState extends State<MoviesDetailPage> {
               if (state.status == MoviesDetailStatus.loading) {
                 return const Center(child: CircularProgressIndicator());
               }
-
-              return Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-                child: Column(
-                  children: [
-                    //   Padding(
-                    //     padding: const EdgeInsets.all(8.0),
-                    //     child: Image.network(
-                    //       state.item?.thumbnail ?? '',
-                    //     ),
-                    //   ),
-                    //   Text(state.item?.title ?? ''),
-                    //   Text(state.item?.description ?? ''),
-                    //   Text(state.item?.category ?? ''),
-                  ],
-                ),
-              );
+              if (state.item != null) {
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      MovieDetailWidget(movieDetailEntity: state.item!),
+                      MovieDescriptionWidget(desc: state.item?.overview),
+                    ],
+                  ),
+                );
+              }
+              return SizedBox();
             },
           );
         },

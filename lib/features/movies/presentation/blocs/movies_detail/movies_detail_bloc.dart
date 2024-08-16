@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movies_test/core/utils/logger_util.dart';
 
 import '../../../domain/entities/movie_detail_entity.dart';
 import '../../../domain/usecases/get_movies_detail_usecase.dart';
@@ -35,6 +36,7 @@ class MoviesDetailBloc extends Bloc<MoviesDetailEvent, MoviesDetailState> {
         item: item,
       ));
     } catch (e) {
+      LOG.e('OnGetMoviesDetailEvent ${e.toString()}');
       emit(
         state.copyWith(
           status: MoviesDetailStatus.failure,

@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/movies_entity.dart';
+import '../../../domain/entities/movie_entity.dart';
 
 part 'search_movies_bloc.freezed.dart';
 part 'search_movies_event.dart';

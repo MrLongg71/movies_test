@@ -4,6 +4,7 @@ part 'trending_movies_event.freezed.dart';
 
 @freezed
 class TrendingMoviesEvent with _$TrendingMoviesEvent {
-  const factory TrendingMoviesEvent.onGetTrendingMoviesEvent() =
-      OnGetTrendingMoviesEvent;
+  const factory TrendingMoviesEvent.onGetTrendingMoviesEvent({
+    @Default(1) int page,
+  }) = OnGetTrendingMoviesEvent;
 }
