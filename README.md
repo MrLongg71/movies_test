@@ -24,9 +24,7 @@ flutter packages get
 ```
 
 - For debug mode run `flutter run` and for production mode run `flutter run --release`
-
-- To run the code generator using `, run `flutter pub run build_runner watch
-  --delete-conflicting-outputs`.
+- 
 - To run the code generator using (`json_serializable`, `freezed`, `getIt`),
   run `flutter pub run build_runner build --delete-conflicting-outputs`
 
@@ -43,11 +41,21 @@ flutter packages get
 | HTTP Client                       | Dio                      | https://pub.dev/packages/dio                                            |
 | Mock data unit test               | Mock                     | https://pub.dev/packages/mockito                                        |
 
-## Testing
-
+## Sample Testing (Unit & Integration)
+- Unit test
 To run the testing (unit test & integration test) sample
-run `flutter pub run build_runner watch --delete-conflicting-outputs`.
+run `flutter test`.
+
+![image](https://github.com/user-attachments/assets/7b690778-9b52-48eb-928d-270ff8285e23)
+
+- Integration test
+  + Sample search movies testing
+  
+https://github.com/user-attachments/assets/896c68cc-7a25-4135-b5f1-c09cfa5b872c
 
 ## Demo
+
+https://github.com/user-attachments/assets/7d6569fa-dd70-4be0-a886-c7a21d7ac87f
+
 
 
