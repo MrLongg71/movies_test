@@ -43,15 +43,18 @@ flutter packages get
 
 ## Sample Testing (Unit & Integration)
 - Unit test
-To run the testing (unit test & integration test) sample
+   + To run the testing (unit test & integration test) sample
 run `flutter test`.
 
 ![image](https://github.com/user-attachments/assets/7b690778-9b52-48eb-928d-270ff8285e23)
 
-- Integration test
-  + Sample search movies testing
+- Integration test rub `flutter test integration_test/app_integration_test.dart`
+  + Sample search movies testing 
   
 https://github.com/user-attachments/assets/896c68cc-7a25-4135-b5f1-c09cfa5b872c
+
+![image](https://github.com/user-attachments/assets/86328a95-9a36-4cca-b1dc-e00bdb3b7ca8)
+
 
 ## Demo
 
