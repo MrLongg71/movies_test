@@ -39,7 +39,7 @@ class TrendingMoviesBloc
         ),
       );
 
-      LOG.i('OnGetTrendingMoviesEvent Success: ${items.length}');
+      appLog.i('OnGetTrendingMoviesEvent Success: ${items.length}');
 
       emit(state.copyWith(
         status: TrendingMoviesStatus.success,
@@ -47,7 +47,7 @@ class TrendingMoviesBloc
         hasReachedMax: items.length < ApiConstants.limitRequest,
       ));
     } on AppException catch (e) {
-      LOG.i('OnGetTrendingMoviesEvent Error: $e');
+      appLog.i('OnGetTrendingMoviesEvent Error: $e');
       emit(
         state.copyWith(
           status: TrendingMoviesStatus.failure,

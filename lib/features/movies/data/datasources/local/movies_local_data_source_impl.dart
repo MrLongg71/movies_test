@@ -23,7 +23,7 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
     _updateOrAddMovie(existingMovies, item);
 
     await _saveMovies(existingMovies.toSet().toList());
-    LOG.i('Cached movie id: ${item.id}');
+    appLog.i('Cached movie id: ${item.id}');
   }
 
   @override
@@ -43,7 +43,7 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
       SPrefConstants.trendingMovies,
       combinedMoviesJson,
     );
-    LOG.i('Cached trending movies ${uniqueMovies.length}');
+    appLog.i('Cached trending movies ${uniqueMovies.length}');
   }
 
   @override

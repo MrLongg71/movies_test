@@ -14,7 +14,7 @@ class HttpUtil {
       // case 302:
       //   return response;
       default:
-        LOG.e('\n ERROR: ${response.data}');
+        appLog.e('\n ERROR: ${response.data}');
         BaseErrorResModel? errorResModel = BaseErrorResModel.fromJson(
           response.data,
         );

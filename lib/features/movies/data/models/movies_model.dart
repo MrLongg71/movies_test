@@ -6,7 +6,7 @@ part 'movies_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class MoviesModel extends MovieEntity {
-  MoviesModel({
+  const MoviesModel({
     super.backdropPath,
     super.id,
     super.title,

@@ -6,8 +6,8 @@ class LoggerUtil extends Logger {
   Level? level;
 
   LoggerUtil({
-    @required this.printer,
-    @required this.level,
+    required this.printer,
+    required this.level,
   }) : super(
           printer: printer,
           level: level,
@@ -24,22 +24,19 @@ class LoggerUtil extends Logger {
   void debug(dynamic message, [dynamic error, StackTrace? stackTrace]) =>
       d('[DEBUG] $message', error: error, stackTrace: stackTrace);
 
-  void verbose(dynamic message) => v('[VERBOSE]\n$message');
-
   static Level logLevel() {
     if (kReleaseMode) {
-      return Level.nothing;
+      return Level.off;
     }
     return Level.debug;
   }
 }
 
-LoggerUtil LOG = LoggerUtil(
+LoggerUtil appLog = LoggerUtil(
   printer: PrettyPrinter(
     methodCount: 3,
     lineLength: 120,
     errorMethodCount: 8,
-    printTime: true,
     printEmojis: true,
     colors: true,
   ),

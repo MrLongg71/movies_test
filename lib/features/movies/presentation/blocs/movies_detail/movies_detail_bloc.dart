@@ -37,7 +37,7 @@ class MoviesDetailBloc extends Bloc<MoviesDetailEvent, MoviesDetailState> {
         item: item,
       ));
     } on AppException catch (e) {
-      LOG.e('OnGetMoviesDetailEvent ${e.toString()}');
+      appLog.e('OnGetMoviesDetailEvent ${e.toString()}');
       emit(
         state.copyWith(
           status: MoviesDetailStatus.failure,

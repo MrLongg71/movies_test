@@ -22,12 +22,12 @@ class AppClient {
     Map<String, dynamic>? queryParams,
   }) async {
     String log =
-        "[GET]\n url: ${ConfigNetwork.apiUrl}$url \n queryParams: $queryParams\n headers: ${header.toJson()}";
+        "[GET]\n url: ${ConfigNetwork.baseUrl}$url \n queryParams: $queryParams\n headers: ${header.toJson()}";
     try {
       queryParams?.addAll({
-        'api_key': '47aa75b56464da7a186b813a50035cd4',
+        'api_key': ConfigNetwork.apiToken,
       });
-      LOG.i(log);
+      appLog.i(log);
       final response = await dio.get(
         url,
         queryParameters: queryParams,
@@ -35,10 +35,10 @@ class AppClient {
           headers: header.toJson(),
         ),
       );
-      LOG.i('[GET] $url Response: ${response.data}');
+      appLog.i('[GET] $url Response: ${response.data}');
       return HttpUtil.handleResponse(response);
     } catch (e) {
-      LOG.e(log);
+      appLog.e(log);
       throw _handleErrorRes(e, url);
     }
   }
@@ -49,9 +49,9 @@ class AppClient {
     String? contentType,
   }) async {
     String log =
-        "[POST]\n url: ${ConfigNetwork.apiUrl}$url \n body: $body\n headers: ${header.toJson()}";
+        "[POST]\n url: ${ConfigNetwork.baseUrl}$url \n body: $body\n headers: ${header.toJson()}";
     try {
-      LOG.i(log);
+      appLog.i(log);
       final response = await dio.post(
         url,
         data: body,
@@ -60,19 +60,19 @@ class AppClient {
           contentType: contentType ?? 'application/json; charset=utf-8',
         ),
       );
-      LOG.i('[POST] $url Response: ${response.data}');
+      appLog.i('[POST] $url Response: ${response.data}');
       return HttpUtil.handleResponse(response);
     } catch (e) {
-      LOG.e(log);
+      appLog.e(log);
       throw _handleErrorRes(e, url);
     }
   }
 
   Future<Response<dynamic>> put(String url, {dynamic body}) async {
     String log =
-        "[PUT]\n url: ${ConfigNetwork.apiUrl}$url \n body: $body\n headers: ${header.toJson()}";
+        "[PUT]\n url: ${ConfigNetwork.baseUrl}$url \n body: $body\n headers: ${header.toJson()}";
     try {
-      LOG.i(log);
+      appLog.i(log);
       final response = await dio.put(
         url,
         data: body,
@@ -80,10 +80,10 @@ class AppClient {
           headers: header.toJson(),
         ),
       );
-      LOG.i('[PUT] $url Response: ${response.data}');
+      appLog.i('[PUT] $url Response: ${response.data}');
       return HttpUtil.handleResponse(response);
     } catch (e) {
-      LOG.e(log);
+      appLog.e(log);
       throw _handleErrorRes(e, url);
     }
   }
@@ -93,9 +93,9 @@ class AppClient {
     Map<String, dynamic>? queryParams,
   }) async {
     String log =
-        "[DELETE]\n url: ${ConfigNetwork.apiUrl}$url \n queryParams: $queryParams \n headers: ${header.toJson()}";
+        "[DELETE]\n url: ${ConfigNetwork.baseUrl}$url \n queryParams: $queryParams \n headers: ${header.toJson()}";
     try {
-      LOG.i(log);
+      appLog.i(log);
       final response = await dio.delete(
         url,
         queryParameters: queryParams,
@@ -103,10 +103,10 @@ class AppClient {
           headers: header.toJson(),
         ),
       );
-      LOG.i('[DELETE] $url Response: ${response.data}');
+      appLog.i('[DELETE] $url Response: ${response.data}');
       return HttpUtil.handleResponse(response);
     } catch (e) {
-      LOG.e(log);
+      appLog.e(log);
       throw _handleErrorRes(e, url);
     }
   }
@@ -125,7 +125,8 @@ class AppClient {
       Response errRes = e.response ??
           Response(
             statusCode: 500,
-            requestOptions: RequestOptions(path: '${ConfigNetwork.apiUrl}$url'),
+            requestOptions:
+                RequestOptions(path: '${ConfigNetwork.baseUrl}$url'),
           );
       return HttpUtil.handleResponse(errRes);
     }

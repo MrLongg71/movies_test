@@ -80,10 +80,12 @@ class _MoviesDetailPageState extends State<MoviesDetailPage> {
   Widget _buildFailureContent(AppException? appException) {
     if (appException?.err.statusCode == ErrorConstants.networkErrorCode) {
       return CustomErrorWidget.network(
+        appbarTitle: '',
         onRetry: () => _bloc.add(OnGetMoviesDetailEvent(id: widget.id)),
       );
     }
     return CustomErrorWidget(
+      appbarTitle: '',
       errMsg: appException?.err.statusMessage,
       onRetry: () => _bloc.add(OnGetMoviesDetailEvent(id: widget.id)),
     );

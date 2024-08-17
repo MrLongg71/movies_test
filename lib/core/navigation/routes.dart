@@ -43,7 +43,7 @@ class Routes {
   }
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    LOG.info('Route name: ${settings.name}');
+    appLog.info('Route name: ${settings.name}');
 
     switch (settings.name) {
       case RouteName.splashscreen:

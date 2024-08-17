@@ -6,6 +6,7 @@ import '../themes/typography.dart';
 class CustomErrorWidget extends StatelessWidget {
   const CustomErrorWidget({
     super.key,
+    this.appbarTitle,
     this.icPath = Icons.error_outline,
     required this.errMsg,
     this.onRetry,
@@ -14,12 +15,14 @@ class CustomErrorWidget extends StatelessWidget {
 
   const CustomErrorWidget.network({
     super.key,
+    this.appbarTitle,
     this.icPath = Icons.network_check,
     this.errMsg = 'Please, check network connect!',
     this.onRetry,
     this.retryText,
   });
 
+  final String? appbarTitle;
   final IconData? icPath;
   final String? errMsg;
   final String? retryText;
@@ -28,9 +31,11 @@ class CustomErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-      ),
+      appBar: appbarTitle != null
+          ? AppBar(
+              automaticallyImplyLeading: true,
+            )
+          : null,
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

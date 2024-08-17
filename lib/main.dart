@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:movies_test/core/themes/app_theme.dart';
 
 import 'core/injector/injection_container.dart';
@@ -7,6 +8,7 @@ import 'core/navigation/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
   await configureDependencies();
   runApp(const MyApp());
 }

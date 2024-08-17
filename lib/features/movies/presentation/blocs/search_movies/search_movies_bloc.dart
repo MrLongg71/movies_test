@@ -31,14 +31,14 @@ class SearchMoviesBloc extends Bloc<SearchMoviesEvent, SearchMoviesState> {
         SearchParams(query: event.query),
       );
 
-      LOG.i('OnSearchMovies Success: ${items.length}');
+      appLog.i('OnSearchMovies Success: ${items.length}');
 
       emit(state.copyWith(
         status: SearchMoviesStatus.success,
         items: items,
       ));
     } on AppException catch (e) {
-      LOG.i('OnSearchMovies Error: $e');
+      appLog.i('OnSearchMovies Error: $e');
       emit(
         state.copyWith(
           status: SearchMoviesStatus.failure,

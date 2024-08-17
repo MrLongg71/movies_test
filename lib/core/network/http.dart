@@ -8,7 +8,7 @@ Dio dio = Dio(
     connectTimeout: const Duration(milliseconds: ConfigNetwork.connectTimeout),
     receiveTimeout: const Duration(milliseconds: ConfigNetwork.responseTimeout),
     contentType: 'application/json; charset=utf-8',
-    baseUrl: ConfigNetwork.apiUrl,
+    baseUrl: ConfigNetwork.baseUrl,
   ),
 );
 
