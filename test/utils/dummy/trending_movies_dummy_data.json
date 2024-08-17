@@ -1,0 +1,426 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/7mQ13AV4qd6A43XxXfSoyYQMzhh.jpg",
+      "id": 1094138,
+      "title": "Jackpot!",
+      "original_title": "Jackpot!",
+      "overview": "In the near future, a 'Grand Lottery' has been established - the catch: kill the winner before sundown to legally claim their multi-billion dollar jackpot. When Katie Kim mistakenly finds herself with the winning ticket, she reluctantly joins forces with amateur lottery protection agent Noel Cassidy who must get her to sundown in exchange for a piece of her prize.",
+      "poster_path": "/fOsamTFIyGxjw1jLSKdZYxQBJOT.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        35
+      ],
+      "popularity": 136.235,
+      "release_date": "2024-08-13",
+      "video": false,
+      "vote_average": 6.542,
+      "vote_count": 24
+    },
+    {
+      "backdrop_path": "/58D6ZAvOKxlHjyX9S8qNKSBE9Y.jpg",
+      "id": 718821,
+      "title": "Twisters",
+      "original_title": "Twisters",
+      "overview": "As storm season intensifies, the paths of former storm chaser Kate Carter and reckless social-media superstar Tyler Owens collide when terrifying phenomena never seen before are unleashed. The pair and their competing teams find themselves squarely in the paths of multiple storm systems converging over central Oklahoma in the fight of their lives.",
+      "poster_path": "/pjnD08FlMAIXsfOLKQbvmO0f0MD.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        12,
+        18,
+        53
+      ],
+      "popularity": 2304.856,
+      "release_date": "2024-07-10",
+      "video": false,
+      "vote_average": 7.077,
+      "vote_count": 673
+    },
+    {
+      "backdrop_path": "/zB0g0VaRKHfRrvBT4ouHK5W967W.jpg",
+      "id": 956842,
+      "title": "Fly Me to the Moon",
+      "original_title": "Fly Me to the Moon",
+      "overview": "Sparks fly in all directions as marketing maven Kelly Jones, brought in to fix NASA's public image, wreaks havoc on Apollo 11 launch director Cole Davis' already difficult task of putting a man on the moon. When the White House deems the mission too important to fail, Jones is directed to stage a fake moon landing as backup, and the countdown truly begins.",
+      "poster_path": "/lb0XDH6LbkYwzbHTqjsUNZTLXMS.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        10749,
+        35
+      ],
+      "popularity": 233.569,
+      "release_date": "2024-07-10",
+      "video": false,
+      "vote_average": 7.088,
+      "vote_count": 200
+    },
+    {
+      "backdrop_path": "/9QfEgu9j6I4aXqGMsPUvDhtkAT5.jpg",
+      "id": 945961,
+      "title": "Alien: Romulus",
+      "original_title": "Alien: Romulus",
+      "overview": "While scavenging the deep ends of a derelict space station, a group of young space colonizers come face to face with the most terrifying life form in the universe.",
+      "poster_path": "/b33nnKl1GSFbao4l3fZDDqsMx0F.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        878,
+        27
+      ],
+      "popularity": 1060.058,
+      "release_date": "2024-08-13",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 88
+    },
+    {
+      "backdrop_path": "/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg",
+      "id": 533535,
+      "title": "Deadpool & Wolverine",
+      "original_title": "Deadpool & Wolverine",
+      "overview": "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine.",
+      "poster_path": "/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        35,
+        878
+      ],
+      "popularity": 9197.804,
+      "release_date": "2024-07-24",
+      "video": false,
+      "vote_average": 7.825,
+      "vote_count": 1886
+    },
+    {
+      "backdrop_path": "/qQqEq11QsXdSTmYs3M7D5bxFHJg.jpg",
+      "id": 1059064,
+      "title": "The Instigators",
+      "original_title": "The Instigators",
+      "overview": "Rory and Cobby are unlikely partners thrown together for a heist. But when it goes awry, they team up to outrun police, backward bureaucrats, and a vengeful crime boss.",
+      "poster_path": "/thI9pM7Qu43f42sOOl5wy75UAo.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        35,
+        80
+      ],
+      "popularity": 592.606,
+      "release_date": "2024-08-02",
+      "video": false,
+      "vote_average": 6.531,
+      "vote_count": 147
+    },
+    {
+      "backdrop_path": "/4cazJU7Jjb5EukxmT7XRCoO9VnV.jpg",
+      "id": 1155058,
+      "title": "Watchmen: Chapter I",
+      "original_title": "Watchmen: Chapter I",
+      "overview": "In 1985, the murder of a government-sponsored superhero draws his outlawed colleagues out of retirement and into a mystery that threatens to upend their personal lives and the world itself.",
+      "poster_path": "/tE2vZ6HdlmKaBh0wpsvHCf7HJKo.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        16,
+        18,
+        878
+      ],
+      "popularity": 167.962,
+      "release_date": "2024-08-12",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 25
+    },
+    {
+      "backdrop_path": "/8yPSYhooj8nyBbmV3GVdLDwuE7e.jpg",
+      "id": 1079091,
+      "title": "It Ends with Us",
+      "original_title": "It Ends with Us",
+      "overview": "Lily Bloom overcomes a traumatic childhood to embark on a new life in Boston and chase a lifelong dream of opening her own business. A chance meeting with charming neurosurgeon Ryle Kincaid sparks an intense connection, but as the two fall deeply in love, Lily begins to see sides of Ryle that remind her of her parents' relationship.",
+      "poster_path": "/tJSbiu7S5pqDnzH9weTW82bYbWu.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        18,
+        10749
+      ],
+      "popularity": 1403.45,
+      "release_date": "2024-08-07",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 71
+    },
+    {
+      "backdrop_path": "/wNAhuOZ3Zf84jCIlrcI6JhgmY5q.jpg",
+      "id": 786892,
+      "title": "Furiosa: A Mad Max Saga",
+      "original_title": "Furiosa: A Mad Max Saga",
+      "overview": "As the world fell, young Furiosa is snatched from the Green Place of Many Mothers and falls into the hands of a great Biker Horde led by the Warlord Dementus. Sweeping through the Wasteland they come across the Citadel presided over by The Immortan Joe. While the two Tyrants war for dominance, Furiosa must survive many trials as she puts together the means to find her way home.",
+      "poster_path": "/iADOJ8Zymht2JPMoy3R7xceZprc.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        12,
+        878
+      ],
+      "popularity": 859.065,
+      "release_date": "2024-05-22",
+      "video": false,
+      "vote_average": 7.614,
+      "vote_count": 2612
+    },
+    {
+      "backdrop_path": "/lgkPzcOSnTvjeMnuFzozRO5HHw1.jpg",
+      "id": 519182,
+      "title": "Despicable Me 4",
+      "original_title": "Despicable Me 4",
+      "overview": "Gru and Lucy and their girls—Margo, Edith and Agnes—welcome a new member to the Gru family, Gru Jr., who is intent on tormenting his dad. Gru also faces a new nemesis in Maxime Le Mal and his femme fatale girlfriend Valentina, forcing the family to go on the run.",
+      "poster_path": "/wWba3TaojhK7NdycRhoQpsG0FaH.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        16,
+        10751,
+        35,
+        28
+      ],
+      "popularity": 2739.442,
+      "release_date": "2024-06-20",
+      "video": false,
+      "vote_average": 7.353,
+      "vote_count": 1007
+    },
+    {
+      "backdrop_path": "/AmR3JG1VQVxU8TfAvljUhfSFUOx.jpg",
+      "id": 348,
+      "title": "Alien",
+      "original_title": "Alien",
+      "overview": "During its return to the earth, commercial spaceship Nostromo intercepts a distress signal from a distant planet. When a three-member team of the crew discovers a chamber containing thousands of eggs on the planet, a creature inside one of the eggs attacks an explorer. The entire crew is unaware of the impending nightmare set to descend upon them when the alien parasite planted inside its unfortunate host is birthed.",
+      "poster_path": "/vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        878
+      ],
+      "popularity": 289.677,
+      "release_date": "1979-05-25",
+      "video": false,
+      "vote_average": 8.156,
+      "vote_count": 14236
+    },
+    {
+      "backdrop_path": "/6vq5wXubxQnXqOeLxAwZrfpAwTG.jpg",
+      "id": 1300962,
+      "title": "The Beast Within",
+      "original_title": "The Beast Within",
+      "overview": "Ten-year-old Willow follows her parents on one of their secret late-night treks to the heart of an ancient forest. After witnessing her father undergo a terrible transformation, she too becomes ensnared by the dark ancestral secret that they've so desperately tried to conceal.",
+      "poster_path": "/5RvNjlDufqUBH3iHBPb1cS53wXl.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        18,
+        53
+      ],
+      "popularity": 70.735,
+      "release_date": "2024-07-22",
+      "video": false,
+      "vote_average": 5.9,
+      "vote_count": 16
+    },
+    {
+      "backdrop_path": "/mKOBdgaEFguADkJhfFslY7TYxIh.jpg",
+      "id": 365177,
+      "title": "Borderlands",
+      "original_title": "Borderlands",
+      "overview": "Returning to her home planet, an infamous outlaw forms an unexpected alliance with a team of unlikely heroes. Together, they battle alien monsters and dangerous bandits to find a missing girl who holds the key to unimaginable power.",
+      "poster_path": "/lrlSOlTiIlTQqVqJGW4HaWjJaBJ.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        878,
+        12,
+        35
+      ],
+      "popularity": 272.196,
+      "release_date": "2024-08-07",
+      "video": false,
+      "vote_average": 5.096,
+      "vote_count": 109
+    },
+    {
+      "backdrop_path": "/iAlsYg6dlv1fvOBypM7SldIS1Wl.jpg",
+      "id": 1032823,
+      "title": "Trap",
+      "original_title": "Trap",
+      "overview": "A father and teen daughter attend a pop concert, where they realize they're at the center of a dark and sinister event.",
+      "poster_path": "/mWV2fNBkSTW67dIotVTXDYZhNBj.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        80,
+        53
+      ],
+      "popularity": 507.335,
+      "release_date": "2024-07-31",
+      "video": false,
+      "vote_average": 6.332,
+      "vote_count": 274
+    },
+    {
+      "backdrop_path": "/stKGOm8UyhuLPR9sZLjs5AkmncA.jpg",
+      "id": 1022789,
+      "title": "Inside Out 2",
+      "original_title": "Inside Out 2",
+      "overview": "Teenager Riley's mind headquarters is undergoing a sudden demolition to make room for something entirely unexpected: new Emotions! Joy, Sadness, Anger, Fear and Disgust, who’ve long been running a successful operation by all accounts, aren’t sure how to feel when Anxiety shows up. And it looks like she’s not alone.",
+      "poster_path": "/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        16,
+        10751,
+        12,
+        35
+      ],
+      "popularity": 3058.407,
+      "release_date": "2024-06-11",
+      "video": false,
+      "vote_average": 7.6,
+      "vote_count": 2383
+    },
+    {
+      "backdrop_path": "/z121dSTR7PY9KxKuvwiIFSYW8cf.jpg",
+      "id": 929590,
+      "title": "Civil War",
+      "original_title": "Civil War",
+      "overview": "In the near future, a group of war journalists attempt to survive while reporting the truth as the United States stands on the brink of civil war.",
+      "poster_path": "/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        10752,
+        28,
+        18
+      ],
+      "popularity": 470.783,
+      "release_date": "2024-04-10",
+      "video": false,
+      "vote_average": 6.965,
+      "vote_count": 2140
+    },
+    {
+      "backdrop_path": "/3q01ACG0MWm0DekhvkPFCXyPZSu.jpg",
+      "id": 573435,
+      "title": "Bad Boys: Ride or Die",
+      "original_title": "Bad Boys: Ride or Die",
+      "overview": "After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.",
+      "poster_path": "/oGythE98MYleE6mZlGs5oBGkux1.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        80,
+        53,
+        35
+      ],
+      "popularity": 2801.699,
+      "release_date": "2024-06-05",
+      "video": false,
+      "vote_average": 7.632,
+      "vote_count": 1545
+    },
+    {
+      "backdrop_path": "/2RVcJbWFmICRDsVxRI8F5xRmRsK.jpg",
+      "id": 762441,
+      "title": "A Quiet Place: Day One",
+      "original_title": "A Quiet Place: Day One",
+      "overview": "As New York City is invaded by alien creatures who hunt by sound, a woman named Sam fights to survive with her cat.",
+      "poster_path": "/yrpPYKijwdMHyTGIOd1iK1h0Xno.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        27,
+        878,
+        53
+      ],
+      "popularity": 1793.777,
+      "release_date": "2024-06-26",
+      "video": false,
+      "vote_average": 6.919,
+      "vote_count": 1303
+    },
+    {
+      "backdrop_path": "/lyEuje8cKjbWliYUGrOaoHVmc1R.jpg",
+      "id": 1002088,
+      "title": "Mission: Cross",
+      "original_title": "크로스",
+      "overview": "In the ultimate test of marriage, an agent-turned-househusband gets tangled in a perilous mission with his detective wife, who's clueless about his past.",
+      "poster_path": "/aE9WqOApdRYsowsGE0118dyA4c9.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "ko",
+      "genre_ids": [
+        28,
+        35,
+        12
+      ],
+      "popularity": 365.019,
+      "release_date": "2024-08-05",
+      "video": false,
+      "vote_average": 7.242,
+      "vote_count": 33
+    },
+    {
+      "backdrop_path": "/5oCAo7LFj2x0yByfi5JYirGnK8I.jpg",
+      "id": 664,
+      "title": "Twister",
+      "original_title": "Twister",
+      "overview": "An unprecedented series of violent tornadoes is sweeping across Oklahoma. Tornado chasers, headed by Dr. Jo Harding, attempt to release a groundbreaking device that will allow them to track them and create a more advanced warning system. They are joined by Jo's soon to be ex-husband Bill, a former tornado chaser himself, and his girlfriend Melissa.",
+      "poster_path": "/opR82XVNZ5A57FcQmxtNniKwR1Y.jpg",
+      "media_type": "movie",
+      "adult": false,
+      "original_language": "en",
+      "genre_ids": [
+        28,
+        12,
+        18
+      ],
+      "popularity": 117.676,
+      "release_date": "1996-05-10",
+      "video": false,
+      "vote_average": 6.506,
+      "vote_count": 3271
+    }
+  ],
+  "total_pages": 1000,
+  "total_results": 20000
+}
