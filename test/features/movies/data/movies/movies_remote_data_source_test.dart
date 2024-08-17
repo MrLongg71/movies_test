@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies_test/core/constants/api_constants.dart';
 import 'package:movies_test/features/movies/data/datasources/remote/movies_remote_data_source_impl.dart';
+import 'package:movies_test/features/movies/data/models/movie_detail_model.dart';
 import 'package:movies_test/features/movies/data/models/movies_model.dart';
 
 import '../../../../utils/dummy/json_reader.dart';
@@ -13,8 +14,10 @@ void main() {
   late final MoviesRemoteDataSourceImpl moviesRemoteDataSourceImpl;
 
   late final List<MoviesModel> trendingMoviesModelList;
-
   late final Map<String, dynamic> trendingMoviesModelJson;
+
+  late final MovieDetailModel movieDetailModel;
+  late final Map<String, dynamic> movieDetailModelJson;
 
   setUpAll(() {
     mockDioClient = MockAppClient();
@@ -22,10 +25,12 @@ void main() {
         MoviesRemoteDataSourceImpl(appClient: mockDioClient);
 
     trendingMoviesModelJson = jsonReader('trending_movies_dummy_data.json');
+    movieDetailModelJson = jsonReader('movie_detail_dummy_data.json');
 
     trendingMoviesModelList = (trendingMoviesModelJson['results'] as List)
         .map((e) => MoviesModel.fromJson(e))
         .toList();
+    movieDetailModel = MovieDetailModel.fromJson(movieDetailModelJson);
   });
 
   //* This is  the simple test for the getTrendingMovies() method
@@ -49,7 +54,6 @@ void main() {
 
     test('should return a List<MoviesModel> when the call is successful',
         () async {
-      // Arrange
       when(
         mockDioClient.get(
           ApiConstants.getTrendingMoviesOfDay,
@@ -62,18 +66,15 @@ void main() {
         (_) async => response,
       );
 
-      // Act
       final result =
           await moviesRemoteDataSourceImpl.getTrendingMovies(page: page);
 
-      // Assert
       expect(result, isA<List<MoviesModel>>());
       expect(result, equals(trendingMoviesModelList));
     });
-    //
+
     test('should throw an [Exception()] when the call is unsuccessful',
         () async {
-      // Arrange
       when(
         mockDioClient.get(
           ApiConstants.getTrendingMoviesOfDay,
@@ -84,10 +85,65 @@ void main() {
         ),
       ).thenThrow(Exception());
 
-      // Act
-      final result = moviesRemoteDataSourceImpl.getTrendingMovies(page: page);
+      final result = moviesRemoteDataSourceImpl.getTrendingMovies(
+        page: page,
+        limit: ApiConstants.limitRequest,
+      );
 
-      // Assert
+      expect(result, throwsException);
+    });
+  });
+
+  //* This is  the simple test for the getMovie() method
+  group('getMovie', () {
+    int id = 945961;
+
+    late final Response<dynamic> response;
+
+    setUpAll(() {
+      response = Response<dynamic>(
+        data: movieDetailModelJson,
+        requestOptions: RequestOptions(
+          path: '${ApiConstants.getMovies}/$id',
+          queryParameters: {
+            'append_to_response': 'similar',
+          },
+        ),
+      );
+    });
+
+    test('should return a MovieDetailModel when the call is successful',
+        () async {
+      when(
+        mockDioClient.get(
+          '${ApiConstants.getMovies}/$id',
+          queryParams: {
+            'append_to_response': 'similar',
+          },
+        ),
+      ).thenAnswer(
+        (_) async => response,
+      );
+
+      final result = await moviesRemoteDataSourceImpl.getMovie(id: id);
+
+      expect(result, isA<MovieDetailModel>());
+      expect(result, equals(movieDetailModel));
+    });
+
+    test('should throw an [Exception()] when the call is unsuccessful',
+        () async {
+      when(
+        mockDioClient.get(
+          '${ApiConstants.getMovies}/$id',
+          queryParams: {
+            'append_to_response': 'similar',
+          },
+        ),
+      ).thenThrow(Exception());
+
+      final result = moviesRemoteDataSourceImpl.getMovie(id: id);
+
       expect(result, throwsException);
     });
   });
