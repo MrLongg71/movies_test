@@ -16,6 +16,11 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
 
   MoviesLocalDataSourceImpl(this.sPrefUtil);
 
+  /// Sample code (local) using SharedPreferences to save cached data.
+  ///
+  /// For more advanced scenarios, consider using local databases such as SQLite, Hive, or Isar
+  /// to handle data storage, manage old data, and perform other data management tasks.
+
   @override
   Future<void> cacheMovie(MovieDetailModel item) async {
     List<MovieDetailModel> existingMovies = await _getCachedMovieDetail();
@@ -47,6 +52,19 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
   }
 
   @override
+  Future<List<MoviesModel>> getTrendingMovies() async {
+    String? existingMoviesJson =
+        await sPrefUtil.getString(SPrefConstants.trendingMovies);
+
+    if (existingMoviesJson == null) {
+      return [];
+    }
+
+    List decodedList = jsonDecode(existingMoviesJson);
+    return decodedList.map((e) => MoviesModel.fromJson(e)).toList();
+  }
+
+  @override
   Future<MovieDetailModel?> getMovie({required int id}) async {
     String? existingMoviesJson = await sPrefUtil.getString(
       SPrefConstants.movies,
@@ -62,19 +80,6 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
           .toList();
     }
     return existingMovies.firstWhereOrNull((e) => e.id == id);
-  }
-
-  @override
-  Future<List<MoviesModel>> getTrendingMovies() async {
-    String? existingMoviesJson =
-        await sPrefUtil.getString(SPrefConstants.trendingMovies);
-
-    if (existingMoviesJson == null) {
-      return [];
-    }
-
-    List decodedList = jsonDecode(existingMoviesJson);
-    return decodedList.map((e) => MoviesModel.fromJson(e)).toList();
   }
 
   Future<List<MovieDetailModel>> _getCachedMovieDetail() async {
@@ -99,6 +104,7 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
     }
   }
 
+  //save movie detail
   Future<void> _saveMovies(List<MovieDetailModel> movies) async {
     String updatedMoviesJson = jsonEncode(movies
         .map(
