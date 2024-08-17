@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_test/core/constants/constants.dart';
 
-import '../../../../core/constants/api_constants.dart';
-import '../../../../core/constants/error_constants.dart';
 import '../../../../core/injector/injection_container.dart';
 import '../../../../core/navigation/route_names.dart';
 import '../../../../core/navigation/routes.dart';
@@ -54,6 +53,7 @@ class _TrendingMoviesPageState extends State<TrendingMoviesPage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFieldIconApp(
+        key: const Key(IntegrationTestKeyConst.searchMoviesOnTap),
         readOnly: true,
         placeholder: 'Search movies',
         onTap: () => Routes.instance.navigateTo(RouteName.searchMovies),

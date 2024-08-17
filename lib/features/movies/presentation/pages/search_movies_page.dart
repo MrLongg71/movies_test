@@ -4,6 +4,7 @@ import 'package:movies_test/core/utils/utils.dart';
 import 'package:movies_test/features/movies/presentation/blocs/search_movies/search_movies_bloc.dart';
 import 'package:movies_test/features/movies/presentation/widgets/search_movies_result.dart';
 
+import '../../../../core/constants/constants.dart';
 import '../../../../core/widgets/text_field_icon_app.dart';
 
 class SearchMoviesPage extends StatefulWidget {
@@ -37,6 +38,7 @@ class SearchMoviesPageState extends State<SearchMoviesPage> {
         automaticallyImplyLeading: true,
         leadingWidth: 32,
         title: TextFieldIconApp(
+          key: const Key(IntegrationTestKeyConst.searchMoviesInputKeyword),
           placeholder: 'Search movies',
           onChanged: _onSearch,
         ),
